@@ -10,6 +10,8 @@ gem 'unicorn'
 gem 'pg'
 gem 'bower'
 gem 'rails_12factor', group: :production
+gem 'devise_token_auth'
+gem 'omniauth'
 
 group :development do
   gem "web-console"
