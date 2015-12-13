@@ -1,0 +1,13 @@
+app.controller('LoginCtrl', ['$scope', '$auth', function($scope, $auth) {
+  $scope.handleLoginBtnClick = function() {
+    $auth.submitLogin($scope.loginForm)
+      .then(function(resp) {
+        // handle success response
+        console.log(resp);
+      })
+      .catch(function(resp) {
+        console.log(resp);
+        // handle error response
+      });
+  };
+}]);

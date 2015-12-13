@@ -12,6 +12,7 @@ gem 'bower'
 gem 'rails_12factor', group: :production
 gem 'devise_token_auth'
 gem 'omniauth'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development do
   gem "web-console"
