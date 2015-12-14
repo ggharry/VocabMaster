@@ -33,6 +33,10 @@
       <section>
         <h4 ng-repeat="sentence in sentences">
           {{ sentence.content }}
+
+          <span class="label label-default" ng-repeat="word in sentence.words_used" style="margin: 0 5px;">
+            {{ word.name }}
+          </span>
           <hr>
         </h4>
       </section>
