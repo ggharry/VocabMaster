@@ -28,10 +28,12 @@ ActiveRecord::Schema.define(version: 20151214170723) do
   create_table "user_words", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "word_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "sentence_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
+  add_index "user_words", ["sentence_id"], name: "index_user_words_on_sentence_id", using: :btree
   add_index "user_words", ["user_id"], name: "index_user_words_on_user_id", using: :btree
   add_index "user_words", ["word_id"], name: "index_user_words_on_word_id", using: :btree
 
@@ -72,6 +74,7 @@ ActiveRecord::Schema.define(version: 20151214170723) do
   end
 
   add_foreign_key "sentences", "users"
+  add_foreign_key "user_words", "sentences"
   add_foreign_key "user_words", "users"
   add_foreign_key "user_words", "words"
 end
