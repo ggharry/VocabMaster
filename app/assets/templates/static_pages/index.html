@@ -6,8 +6,36 @@
 
     <a href="/#/login" ng-show="currentUser == null" class="btn btn-default">Login</a>
 
-    <h2 ng-show="currentUser != null">
-      Hi, {{ currentUser.email }}!
-    </h2>
+    <section ng-show="currentUser != null">
+      <h2>
+        Hi, {{ currentUser.email }}!
+      </h2>
+
+      <hr>
+
+      <h3>Please use the following 3 words</h3>
+
+      <h4 ng-repeat="word in three_new_words track by $index" ng-click="showDefinition =! showDefinition">
+        {{ word.name }}
+        
+        <span ng-show="showDefinition">
+          | {{ word.definition }}
+        </span>
+      </h4>
+
+      <form ng-submit="newSentence.submit()">
+        <textarea class="form-control" rows="3" ng-model="newSentence.content" style="font-size: 16px;"></textarea>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <hr>
+
+      <section>
+        <h4 ng-repeat="sentence in sentences">
+          {{ sentence.content }}
+          <hr>
+        </h4>
+      </section>
+    </section>
   </div>
 </div>

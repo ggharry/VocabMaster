@@ -4,7 +4,7 @@ module Api
       def index
         user = current_user
 
-        @sentences = current_user.sentences.includes(:user_words)
+        @sentences = current_user.sentences.includes(:user_words).reverse
       end
 
       def create
