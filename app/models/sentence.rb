@@ -7,7 +7,7 @@ class Sentence < ActiveRecord::Base
   private
 
   def grab_used_words
-    used_words = self.content.split(/\s+(?=(?:[^"]*"[^"]*")*[^"]*$)/)
+    used_words = self.content.scan(/\w+/)
 
     user = self.user
 
